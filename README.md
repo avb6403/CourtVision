@@ -1,9 +1,12 @@
-# Project Title: Real-Time Image Processing and Analysis System
+# Real-Time Image Processing and Analysis System
 
 ## Project Overview
 This project is designed to perform real-time image processing and pose analysis using a Zynq processor, integrating with MATLAB for processing and Unity for visualization.
 
 ## System Architecture
+
+![Alt text](/CourtVision/doc/topology_orig.png "System Architecture Diagram")
+
 
 ### Components:
 - **Image Processing Core**: A dedicated module for initial image processing. It performs real-time operations such as filtering, edge detection, or noise reduction.
