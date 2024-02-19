@@ -5,7 +5,7 @@ This project is designed to perform real-time image processing and pose analysis
 
 ## System Architecture
 
-![Alt text](/CourtVision/doc/topology_orig.png "System Architecture Diagram")
+![Alt text](/doc/topology_orig.png "System Architecture Diagram")
 
 
 ### Components:
