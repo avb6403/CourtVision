@@ -35,14 +35,7 @@ class MyApp(App):
         self.img = gui.Image('/res:logo.png', height=100, margin='10px')
         self.img.onclick.do(self.on_img_clicked)
 
-        self.table = gui.Table.new_from_list([('ID', 'First Name', 'Last Name'),
-                                   ('101', 'Danny', 'Young'),
-                                   ('102', 'Christine', 'Holand'),
-                                   ('103', 'Lars', 'Gordon'),
-                                   ('104', 'Roberto', 'Robitaille'),
-                                   ('105', 'Maria', 'Papadopoulos')], width=300, height=200, margin='10px')
-        self.table.on_table_row_click.do(self.on_table_row_click)
-
+       
         # the arguments are	width - height - layoutOrientationOrizontal
         subContainerRight = gui.Container(style={'width': '220px', 'display': 'block', 'overflow': 'auto', 'text-align': 'center'})
         self.count = 0
@@ -77,11 +70,7 @@ class MyApp(App):
         self.btUploadFile.onfailed.do(self.fileupload_on_failed)
 
         items = ('Danny Young','Christine Holand','Lars Gordon','Roberto Robitaille')
-        self.listView = gui.ListView.new_from_list(items, width=300, height=120, margin='10px')
-        self.listView.onselection.do(self.list_view_on_selected)
-
-        self.link = gui.Link("http://localhost:8081", "A link to here", width=200, height=30, margin='10px')
-
+       
         self.dropDown = gui.DropDown.new_from_list(('DropDownItem 0', 'DropDownItem 1'),
                                                    width=200, height=20, margin='10px')
         self.dropDown.onchange.do(self.drop_down_changed)
@@ -126,7 +115,7 @@ class MyApp(App):
         subContainerRight.append([self.btUploadFile, self.dropDown, self.slider, self.colorPicker, self.date, self.tree])
         self.subContainerRight = subContainerRight
 
-        subContainerLeft.append([self.img, self.table, self.listView, self.link, self.video])
+        subContainerLeft.append([self.img, self.video])
 
         horizontalContainer.append([subContainerLeft, subContainerRight])
 
@@ -227,7 +216,6 @@ class MyApp(App):
         self.date.set_value(result)
 
         result = self.dialog.get_field('dlistView').get_value()
-        self.listView.select_by_value(result)
 
     # listener function
     def on_img_clicked(self, widget):
@@ -279,12 +267,6 @@ class MyApp(App):
             # replace the last download link
             fdownloader = gui.FileDownloader("download selected", f, width=200, height=30)
             self.subContainerRight.append(fdownloader, key='file_downloader')
-
-    def list_view_on_selected(self, widget, selected_item_key):
-        """ The selection event of the listView, returns a key of the clicked event.
-            You can retrieve the item rapidly
-        """
-        self.lbl.set_text('List selection: ' + self.listView.children[selected_item_key].get_text())
 
     def drop_down_changed(self, widget, value):
         self.lbl.set_text('New Combo value: ' + value)
