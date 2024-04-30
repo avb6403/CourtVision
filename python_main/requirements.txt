@@ -1,0 +1,5 @@
+numpy==1.26.4
+numpysocket==1.0.1
+opencv_python==4.9.0.80
+pandas==2.2.2
+plotly==5.21.0
